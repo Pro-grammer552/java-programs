@@ -1,0 +1,51 @@
+package com.assignment37;
+
+
+
+class CustomException extends Exception {
+	CustomException(String message) {
+		super(message);
+	}
+}
+
+public class SumValidation {
+
+//	public static int calculateSum(String digits) {
+//		int sum = 0;
+//		for(char digit:digits.toCharArray())
+//		{
+//			sum+=
+//		}
+//		return sum;
+//	}
+
+	
+	public static void calculateSum(String str)
+	{
+		int n=3;
+		int countStart=0;
+		int countend=0;
+		
+		
+		
+		String startstr=str.substring(0,3);
+		
+		String endstr=str.substring(str.length()-3,str.length());
+		
+		System.out.println(endstr+"" +startstr);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+		String str="1234";
+		calculateSum(str);
+		
+		
+		
+		
+
+	}
+
+}

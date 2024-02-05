@@ -1,0 +1,11 @@
+package com.Stringassignmet40;
+
+public class ReplaceFirstOccurrence {
+	public static void main(String[] args) {
+		String input = "programming is fun";
+		char oldChar = 'm';
+		char newChar = 'z';
+
+	}
+
+}

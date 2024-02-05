@@ -1,0 +1,39 @@
+package com.prep;
+/*
+ Q12)Given sentence and a word, 
+ find if the word can be formed 
+ from given characters in sentence.   [1M]
+
+For example, 
+s1=”THE SKY IS THE LIMIT”
+word = "AXE", -> No 
+word = "SIT", -> Yes can be formed
+word = "AMIT", -> Yes can be formed
+ */
+
+public class WordCombinantion {
+
+    public static void main(String[] args) {
+        String s = "THE SKY IS THE LIMIT";
+        String[] tarWords = {"AXE", "SIT", "AMIT"};
+
+        for (String tar : tarWords) {
+            boolean flag = true;
+
+            for (int i = 0; i < tar.length(); i++) {
+                char c = tar.charAt(i);
+
+                if (!s.toLowerCase().contains(String.valueOf(c).toLowerCase())) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                System.out.println(tar + " -> Yes can be formed");
+            } else {
+                System.out.println(tar + " -> No");
+            }
+        }
+    }
+}

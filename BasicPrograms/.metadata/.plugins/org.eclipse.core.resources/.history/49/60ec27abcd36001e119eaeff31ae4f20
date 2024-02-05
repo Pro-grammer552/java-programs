@@ -1,0 +1,68 @@
+package myexample.main;
+
+import myexample.model.Student;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class StudentMain {
+	static int max = 15;
+	static Student[] studentArray = new Student[15];
+	static int studentCount = 0;
+
+	public static void addStudent() {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter Student ID: ");
+		int studentId = scanner.nextInt();
+		scanner.nextLine();
+		System.out.print("Enter Student Name: ");
+		String studentName = scanner.nextLine();
+		System.out.print("Enter Age: ");
+		int age = scanner.nextInt();
+
+		Student s1 = new Student(studentId, studentName, age);
+
+		checkStudentRecord(s1);
+
+	}
+
+	public static boolean checkStudentRecord(Student s) {
+
+		boolean t = true;
+
+		for (Student arr : studentArray)
+
+		{
+			// System.out.println(arr);
+			if (arr != null) {
+				t = arr.equals(s);
+
+			}
+
+		}
+		return t;
+
+	}
+
+	public static void displayStudents() {
+		for (int i = 0; i < studentCount; i++) {
+            System.out.println(studentArray[i]);
+        }
+
+	}
+
+	public static void main(String[] args) {
+        addStudent();
+        addStudent();
+        displayStudents();
+    
+
+		Student s = new Student(101, "Suraj", 20);
+		Student s1 = new Student(101, "Suraj", 20);
+
+		System.out.println(s.equals(s1));
+
+	}
+
+}

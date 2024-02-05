@@ -1,0 +1,59 @@
+package com.prep;
+
+public class RemoveExtraSpaces {
+
+	public static void main(String[] args) {
+//		String s = "  i am  suraj";
+//		String n = s.trim();
+//		String a = " ";
+//		String p = "";
+//		// String rep = n.replace(" ", " ");
+
+		// System.out.println(rep);
+
+//		char ch[] = n.toCharArray();
+//		boolean spaceOccurred = false;
+//		for (int i = 0; i < ch.length; i++) {
+
+			// if (ch[i] != ' ') {
+			//
+			// p += ch[i];
+			// } else {
+			// if (p != "") {
+			// a = a + p + " ";
+			// p = "";
+			//
+			// }
+			// }
+
+//	           if (ch[i] != ' ') {
+//	                if (spaceOccurred) {
+//	                    p += ' '; 
+//	                    spaceOccurred = false;	
+//	                }
+//	                p += ch[i];
+//	            } else {
+//	                spaceOccurred = true;
+//	            }
+//	        }
+			
+			
+				// TODO Auto-generated method stub
+				String s = "i love  java   ";
+				String s2 = "";
+
+				//char ch[] = s.toCharArray();
+
+				String arr[] = s.split(" ");
+				
+				for(int i=0;i<arr.length;i++) {
+					arr[i] = arr[i].trim();
+					s2 += arr[i];
+					s2+=" ";
+				}
+				System.out.println(s2);
+//		System.out.println(p);
+
+	}
+
+}

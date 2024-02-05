@@ -1,0 +1,11 @@
+package com.dao;
+
+import java.sql.SQLException;
+
+public interface AccountDao {
+	public boolean addAccount(String accno,int custid)throws SQLException;
+	public boolean deposit(int userid)throws SQLException;
+	public boolean withdraw(int userid)throws SQLException;
+	public double showBalance(int userid)throws SQLException;
+	public boolean Transaction(int userid)throws SQLException;
+}

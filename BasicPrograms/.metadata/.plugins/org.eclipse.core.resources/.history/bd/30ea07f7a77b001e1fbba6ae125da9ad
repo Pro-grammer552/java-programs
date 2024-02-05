@@ -1,0 +1,20 @@
+package com.prep;
+
+import java.util.HashMap;
+
+public class WordCount {
+
+	public static void main(String[] args) {
+
+		String arr[] = {"red", "white", "red", "white", "red"};
+
+		HashMap<String, Integer> h = new HashMap<String, Integer>();
+
+		for (String arr1 : arr) {
+
+			h.put(arr1, h.get(arr) + 1);
+		}
+		System.out.println(h);
+
+	}
+}

@@ -1,0 +1,28 @@
+package com.jdbc;
+
+import java.sql.*;
+
+public class JdbcConnectivity {
+
+	public static void main(String[] args) {
+
+		try {
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/testcoursedb";
+
+			Connection con = DriverManager.getConnection("root", url, "rootroot");
+System.out.println("Connected to DataBAse...");
+			
+			System.out.println("Driver Loaded");
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

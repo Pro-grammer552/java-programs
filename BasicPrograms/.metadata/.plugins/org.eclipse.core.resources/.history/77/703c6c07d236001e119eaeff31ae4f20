@@ -1,0 +1,84 @@
+package myexample.main;
+
+import myexample.model.Student;
+
+import java.util.Scanner;
+
+public class StudentMain {
+	static int max = 5;
+	static Student[] studArray = new Student[5];
+	static int studentCount = 0;
+
+	public static void addStudent() {
+
+		
+		System.out.print("Enter Student ID: ");
+		int studentId = sc.nextInt();
+		sc.nextLine();
+		System.out.print("Enter Student Name: ");
+		String studentName = sc.nextLine();
+		System.out.print("Enter Age: ");
+		int age = sc.nextInt();
+
+		Student s1 = new Student(studentId, studentName, age);
+
+		checkStudentRecord(s1);
+
+		if (checkStudentRecord(s1)) {
+			System.out.println("same records Found");
+		} else if (studentCount > max) {
+			studArray[studentCount] = s1;
+			System.out.println("Added Sucessfully");
+		} else {
+			System.out.println("can not add more Student");
+		}
+
+	}
+
+	public static boolean checkStudentRecord(Student s) {
+		for (Student arr : studArray) {
+			if (arr != null && arr.equals(s)) {
+				return true; // Student record already exists
+			}
+		}
+		return false; // Student record does not exist
+	}
+
+	public static void displayStudents() {
+		for (int i = 0; i < studentCount; i++) {
+			System.out.println(studArray[i]);
+		}
+
+	}
+
+	  public static void main(String[] args) {
+		  Scanner sc = new Scanner(System.in);
+	        int choice;
+
+	        do {
+	            System.out.println("\nMenu:");
+	            System.out.println("1. Add Student");
+	            System.out.println("2. Display Students");
+	            System.out.println("3. Exit");
+	            System.out.print("Enter your choice: ");
+	            choice = sc.nextInt();
+
+	            switch (choice) {
+	                case 1:
+	                    addStudent();
+	                    break;
+	                case 2:
+	                    displayStudents();
+	                    break;
+	                case 3:
+	                    System.out.println("Exiting the program.");
+	                    break;
+	                default:
+	                    System.out.println("Invalid choice. Please try again.");
+	                    break;
+	            }
+	        } while (choice != 3);
+	    }
+	}
+	
+

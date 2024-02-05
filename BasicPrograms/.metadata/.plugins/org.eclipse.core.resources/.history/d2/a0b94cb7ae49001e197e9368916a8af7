@@ -1,0 +1,39 @@
+package com.List;
+
+import java.util.ArrayList;
+
+public class SumOfPrimeNumber {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> arr3 = new ArrayList<>();
+
+		arr3.add(11);
+		arr3.add(23);
+		arr3.add(33);
+		arr3.add(45);
+		arr3.add(50);
+		arr3.add(77);
+
+		// System.out.println(arr3);
+		int sum = 0;
+		int flag = 1;
+		for (int i = 2; i < arr3.size(); i++) {
+
+			for (int j = 2; j < i; j++) {
+
+				if (arr3.get(i) % arr3.get(j) == 1) {
+					sum = sum + i;
+					flag = 0;
+					flag++;
+				}
+
+			}
+
+		}
+		if (flag == 1) {
+			System.out.println(sum);
+		}
+
+	}
+
+}

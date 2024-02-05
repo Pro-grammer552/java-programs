@@ -1,0 +1,21 @@
+package com.prep;
+
+import java.util.ArrayList;
+
+public class Employee {
+	int id;
+	String name;
+	int salary;
+
+	public Employee(int id, String name, int salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+
+	public static void main(String[] args) {
+      
+       
+
+ 
+        ArrayList<Employee> employeesWithTwoVowels = new ArrayList<>();
+}}

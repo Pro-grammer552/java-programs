@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+G:\Thinkquotient DP5\BasicPrograms\.metadata\.plugins\org.eclipse.jdt.core
+1631601163.index
+3132540046.index
+1865797976.index
+1275169099.index

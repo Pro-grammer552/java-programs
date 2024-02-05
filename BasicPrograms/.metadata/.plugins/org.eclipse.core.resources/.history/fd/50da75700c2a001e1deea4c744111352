@@ -1,0 +1,39 @@
+package interface24N_Lec;
+
+interface A {
+	default void show() {
+		System.out.println("InterfaceA");
+	}
+
+}
+
+interface b {
+	default void show() {
+		System.out.println("Interfaceb");
+	}
+
+}
+
+class child implements A, b {
+
+	public void show() {
+		A.super.show();
+		b.super.show();
+	}
+}
+
+public class TestDiamondProblem {
+
+	public static void main(String[] args) {
+		child c =new child();
+		c.show();
+//		TestDiamondProblem t=new TestDiamondProblem();
+//		 t.show();
+		
+		
+		
+		
+
+	}
+
+}

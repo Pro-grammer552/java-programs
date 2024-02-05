@@ -1,0 +1,24 @@
+package com.jdbc;
+
+import java.sql.*;
+
+public class JdbcConnectivityDelete {
+
+	public static void getConnect()throws ClassNotFoundException, SQLException {
+
+	{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/studentdb";
+
+		System.out.println("Driver Loaded");
+
+		Connection con = DriverManager.getConnection(url, "root", "rootroot");
+		System.out.println("Connected to DataBAse...");
+		
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

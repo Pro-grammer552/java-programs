@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;dataQuery.java&apos; to &apos;JDBC_CONSOLE_BASED_APPLICATION/src/com.jdbc.app&apos;&#x0D;&#x0A;- Original project: &apos;JDBCCRUDOperation1&apos;&#x0D;&#x0A;- Destination element: &apos;JDBC_CONSOLE_BASED_APPLICATION/src/com.jdbc.app&apos;&#x0D;&#x0A;- Original element: &apos;com.jdbc.util.dataQuery.java&apos;" description="Copy compilation unit" destination="=JDBC_CONSOLE_BASED_APPLICATION/src&lt;com.jdbc.app" element1="/src&lt;com.jdbc.util{dataQuery.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1696661096631" units="1" version="1.0"/>
+</session>

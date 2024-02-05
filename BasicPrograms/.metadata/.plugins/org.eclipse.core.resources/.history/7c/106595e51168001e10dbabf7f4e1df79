@@ -1,0 +1,174 @@
+package com.test;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import com.dao.*;
+import com.dao.AccountDao;
+import com.pojo.User;
+import com.utility.DBConnection;
+
+public class LoginUser implements AccountDao{
+User user;
+UserDao ud;
+Connection conn=DBConnection.getConnect();
+PreparedStatement ps;
+static Scanner sc=new Scanner(System.in);
+@Override
+public boolean addAccount(String accno, int custid) throws SQLException {
+	// TODO Auto-generated method stub
+	return false;
+}
+@Override
+public boolean deposit(int userid) throws SQLException {
+	// TODO Auto-generated method stub
+	try {
+		user=new UserDaoImpl().searchUserByUserid(userid);
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	System.out.println("Enter the amount to deposit:");
+	Double amt=sc.nextDouble();
+	String sql2="update accountinfo set  balance=(?) where userid=(?)";
+	double amts=0;
+	try {
+		amts= user.getAccount().getBalance()+amt;
+		ps=conn.prepareStatement(sql2);
+		ps.setDouble(1, amts);
+		ps.setInt(2, userid);
+		int r=ps.executeUpdate();
+		if(r>1) {
+			System.out.println("not updated");
+		}
+		else {
+			System.out.println("updated success");
+			return true;
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	System.out.println("amount is: "+amts);
+	
+		
+	return false;
+}
+@Override
+public boolean withdraw(int userid) throws SQLException {
+	// TODO Auto-generated method stub
+	System.out.println("Debit amount from account");
+	try {
+		user=new UserDaoImpl().searchUserByUserid(userid);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	System.out.println("Enter the amount to debit:");
+	Double amt1=sc.nextDouble();
+	String sql3="update accountinfo set  balance=(?) where userid=(?)";
+	double amts1=0;
+	try {
+		amts1= user.getAccount().getBalance();
+		if(amts1>amt1) {
+			amts1=user.getAccount().getBalance()-amt1;
+			ps=conn.prepareStatement(sql3);
+			ps.setDouble(1, amts1);
+			ps.setInt(2, userid);
+			int r=ps.executeUpdate();
+			if(r>1) {
+				System.out.println("not updated");
+			}
+			else {
+				System.out.println("updated success");
+				return true;
+			}
+		}
+		else {
+			System.out.println("not possible !!! amount is less than u want to withdraw");
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	System.out.println("amount is: "+amts1);
+	
+	return false;
+}
+@Override
+public double showBalance(int userid) throws SQLException {
+	// TODO Auto-generated method stub
+	
+	return 0;
+}
+@Override
+public boolean Transaction(int userid) throws SQLException {
+	// TODO Auto-generated method stub
+	
+	User ur=null;
+	System.out.println("Enter receivers account number:");
+	String receiveracc=sc.next();
+	System.out.println("Enter amount to transfer:");
+	Double amountss=sc.nextDouble();
+	double senderbalance=0;
+	double receiverbalance=0;
+	int receiveruserid=0;
+	try {
+		user=new UserDaoImpl().searchUserByUserid(userid);
+		ur=new UserDaoImpl().searchUserByAccountno(receiveracc);
+		if(ur!=null && user!=null && user.getUserid()!=ur.getUserid()) {
+			receiveruserid=ur.getUserid();
+			senderbalance=user.getAccount().getBalance();
+			receiverbalance=ur.getAccount().getBalance();
+			if(senderbalance-amountss>0) {
+				senderbalance=user.getAccount().getBalance()-amountss;
+				receiverbalance=ur.getAccount().getBalance()+amountss;
+				String sqlr="update accountinfo set balance=(?) where  userid=(?)";
+				ps=conn.prepareStatement(sqlr);
+				ps.setDouble(1, receiverbalance);
+				ps.setInt(2, receiveruserid);
+				
+				int ansr=ps.executeUpdate();
+				if(ansr>0) {
+					
+					System.out.println("updated success");
+					
+				}
+				else {
+					System.out.println("not updated");
+				}	
+				String sqls="update accountinfo set balance=(?) where  userid=(?)";
+				ps=conn.prepareStatement(sqls);
+				ps.setDouble(1, senderbalance);
+				ps.setInt(2, userid);
+				int anss=ps.executeUpdate();
+				if(anss>0) {
+					System.out.println("updated success");
+					System.out.println("current amount is:"+senderbalance);
+					return true;
+				}
+				else {
+					System.out.println("not updated");
+				}	
+			}
+			else {
+				System.out.println("sender account have less amount !!");
+			}
+		}
+		else {
+			System.out.println("user not found");
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	return false;
+}
+
+
+}

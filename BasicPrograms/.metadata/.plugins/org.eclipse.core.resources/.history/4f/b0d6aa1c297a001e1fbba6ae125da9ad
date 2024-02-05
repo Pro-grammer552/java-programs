@@ -1,0 +1,20 @@
+package com.prep;
+
+public class RemoveExtraSpaces {
+
+	public static void main(String[] args) {
+		String s="  i am  suraj";
+		String n=s.trim();
+		
+		
+		String rep=n.replace("  ", " ");
+		
+		System.out.println(rep);
+		
+		
+		
+		
+		
+	}
+
+}

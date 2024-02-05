@@ -1,0 +1,57 @@
+package com.List;
+
+import java.util.ArrayList;
+
+public class Student {
+	private String name;
+	private int id;
+	private int score;
+
+	public Student(String name, int id, int score) {
+		this.name = name;
+		this.id = id;
+		this.score = score;
+	}
+
+	public int getId() {
+		return id;
+
+	}
+
+	@Override
+	public String toString() {
+		return "Student{" + "name='" + name + '\'' + ", id=" + id + ", score=" + score + '}';
+	}
+}
+
+class abc {
+
+	public static void main(String[] args) {
+		ArrayList<Student> st = new ArrayList<>();
+		ArrayList<Student> ss = new ArrayList<Student>();
+		st.add(new Student("Subodh", 101, 84));
+		st.add(new Student("S", 102, 90));
+		st.add(new Student("Kavita", 103, 70));
+		st.add(new Student("Kavita", 103, 70));
+		st.add(new Student("Kavita", 103, 70));
+		st.add(new Student("Kavita", 103, 70));
+		st.add(new Student("Kavita", 103, 70));
+
+		// unique id print and store to another arraylist
+
+		for (int i = 0; i < st.size(); i++) {
+
+			for (int j = i + 1; j < st.size(); j++) {
+				if (st.get(i).getId() == st.get(j).getId()) {
+					continue;
+
+				} else {
+					ss.add(st.get(i));
+				}
+
+				
+			}
+		}
+		System.out.println(ss);
+	}
+}

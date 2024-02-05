@@ -1,0 +1,16 @@
+package com.String_Basic;
+
+public class reverseInteger {
+
+	public static void main(String[] args) {
+		
+		int a=123;
+		StringBuilder s = new StringBuilder();
+        s.append(Math.abs(a));
+        s.reverse();
+        
+        System.out.println(s.toString());
+
+	}
+
+}

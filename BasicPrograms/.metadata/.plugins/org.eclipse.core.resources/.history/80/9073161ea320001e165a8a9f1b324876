@@ -1,0 +1,18 @@
+package Assignment12K;
+
+/*
+create student class student having id name three subject marks 
+ASSIGN Data to student 
+calculate the percentage on the basis of marks and then display the result using
+student imformation percentage and as per the student percentage grade 
+ */
+
+
+public class Student {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

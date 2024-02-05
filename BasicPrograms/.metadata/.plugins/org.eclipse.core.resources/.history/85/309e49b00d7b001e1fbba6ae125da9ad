@@ -1,0 +1,28 @@
+package com.prep;
+
+import java.util.HashMap;
+
+public class MapCount {
+
+	public static void main(String[] args) {
+		HashMap<Integer, Character> old = new HashMap<Integer, Character>();
+		HashMap<Character, Integer> ne = new HashMap<Character, Integer>();
+
+		old.put(1, 'a');
+		old.put(2, 'a');
+		old.put(3, 'b');
+
+		for (Character c : old.values()) {
+		
+			if(ne.containsKey(c))
+			{
+				ne.put(c,ne.get(c)+1);
+			}else
+			{
+				ne.put(c,1);
+			}
+		}
+		System.out.println(ne);
+	}
+
+}

@@ -1,0 +1,46 @@
+package myexample.main;
+
+import java.util.Scanner;
+
+import myexample.model.Student;
+
+public class StudentMain {
+	
+	
+	
+	
+	static Student[] stud =new Student [15];
+	
+	public static void  addStudent()
+	{
+		
+		
+		
+		
+		
+		Student stu=new Student();
+		stu.setId(0);
+		stu.setName("");
+		stu.setAge(0);
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the Id");
+		int id =sc.nextInt();
+		System.out.println("Enter the Name");
+		String name=sc.next();
+		System.out.println("Enter the Age");
+		int age=sc.nextInt();
+		
+			
+		
+		
+
+	}
+
+}

@@ -1,0 +1,25 @@
+package com.prep;
+
+import java.util.Arrays;
+
+public class RotateArray2 {
+
+	public static void main(String[] args) {
+		int k = 2;
+		int arr[] = {1, 2, 3, 4, 5, 6};
+		// int temp[] = new int[arr.length];
+
+		int n = arr.length - 1;
+
+		int temp = arr[n];
+		for (int i = 1; i < arr.length; i++) {
+
+			arr[i] = arr[i + 1];
+
+		}
+		arr[0] = temp;
+		System.out.println(Arrays.toString(arr));
+
+	}
+
+}
